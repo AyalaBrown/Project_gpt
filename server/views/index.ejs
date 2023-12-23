@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartAi Generator</title>
+</head>
+<body>
+    <h1>Welcom to the smart AI Blessings generation</h1>
+    <form action="/prompts" method="post">
+        <input type="text" name="prompt-inpute" id="" placeholder="which event?"/>
+        <button type="submit">Generate Blessing</button>
+    </form>
+
+    <div id="output">
+        <% if (typeof response !== 'undefined') {%>
+            <h1>Output</h1>
+            <div class="prompt-container">
+                <h2>Prompt 1:</h2><br/>
+                <pre class="prompt-text"><%= response["1"] %></pre>
+            </div>
+            <div class="prompt-container">
+                <h2>Prompt 2:</h2><br/>
+                <pre class="prompt-text"><%= response["2"] %></pre>
+            </div>
+            <div class="prompt-container">
+                <h2>Prompt 3:</h2><br/>
+                <pre class="prompt-text"><%= response["3"] %></pre>
+            </div>
+        <% } else if (typeof error !== 'undefined') { %>
+            <p clss="error-response">Error:<%= error %></p>
+        <%}%>
+    </div>
+</body>
+</html>
